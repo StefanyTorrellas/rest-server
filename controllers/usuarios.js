@@ -71,13 +71,14 @@ const usuariosPatch=(req, res= respose) => {
 const usuariosDelete = async (req, res= respose) => {
 
     const { id } = req.params;
+    const uid = req.uid;
 
     // //Borrado Fisicamente
     // const usuario = await Usuario.findOneAndDelete( id );
 
     const usuario = await Usuario.findByIdAndUpdate( id, { estado: false});
 
-    res.json(usuario);
+    res.json(usuario, );
 };
 
 

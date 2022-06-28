@@ -36,7 +36,7 @@ router.post('/', [
 ], usuariosPost);
 
 router.put('/:id', [
-    check('id', 'No es un ID válido'). isMongoId(),
+    check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeUsuarioPorId),
     check('rol').custom( esRoleValido),
     validarCampos
@@ -48,7 +48,7 @@ router.delete('/:id', [
     validarJWT,
     // esAdminRole,
     tieneRole('ADMIN_ROLE','VENTAS_ROLE', 'USER_ROLE'),
-    check('id', 'No es un ID válido'). isMongoId(),
+    check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeUsuarioPorId),
     validarCampos
 

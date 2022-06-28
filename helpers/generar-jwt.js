@@ -9,7 +9,7 @@ const generarJWT = ( uid = '' ) => {
 
         const payloand = { uid };
         jwt.sign( payloand, process.env.SECRETORPRIVATEKEY, {   //instrucción para general un jsonwebtoken 
-            expiresIn: '359785'
+            expiresIn: '125255463216162515315634344'
         },(err,token) => {
 
             if( err){

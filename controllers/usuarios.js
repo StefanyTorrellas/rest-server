@@ -1,10 +1,10 @@
-const { respose, request } = require('express');
+const { response, request } = require('express');
 const bcryptjs = require('bcryptjs');
 const Usuario = require('../models/usuario');
 
 
 
-const usuariosGet = async (req = request, res = respose) => {
+const usuariosGet = async (req = request, res = response) => {
     // const { q, nombre= 'No name', apikey, page  = 1, limit}= req.query;
     const { limite = 5, desde = 0 } = req.query;   //Estos son los argumentos opcionales que vienen por el query
     const query = { estado: true}    //aca hago el query para extraer solo los de estado true
@@ -26,7 +26,7 @@ const usuariosGet = async (req = request, res = respose) => {
     });
 };
 
-const usuariosPost = async ( req, res = respose) => {
+const usuariosPost = async ( req, res = response) => {
     
     //para extraer todo seria {goole, ...resto}
     const {nombre, email, password, rol} = req.body;
@@ -46,7 +46,7 @@ const usuariosPost = async ( req, res = respose) => {
     });
 };
 
-const usuariosPut = async(req, res = respose) => {
+const usuariosPut = async(req, res = response) => {
 
     const { id } = req.params;
     const { _id, password, google, email, ...resto} = req.body;
@@ -62,13 +62,13 @@ const usuariosPut = async(req, res = respose) => {
     res.json(usuario);
 };
 
-const usuariosPatch=(req, res= respose) => {
+const usuariosPatch=(req, res= response) => {
     res.json({
         msg: 'patch API - usuariosPatch'
     });
 };
 
-const usuariosDelete = async (req, res= respose) => {
+const usuariosDelete = async (req, res= response) => {
 
     const { id } = req.params;
     const uid = req.uid;

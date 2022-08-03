@@ -81,7 +81,7 @@ const actualizarProducto =async(req, res = response) => {
 //borrarProducto -estado:false
 const borrarProducto = async (req, res= response) => {
     const { id } = req.params;
-    
+     
     const productoBorrado = await Producto.findByIdAndUpdate( id, { estado: false},{new: true});
 
     res.json( productoBorrado );
